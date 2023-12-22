@@ -1,2 +1,5 @@
+xsel
 xclip
 libgtk-3-dev
+build-essential
+pkg-config
