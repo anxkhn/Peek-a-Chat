@@ -2,6 +2,7 @@
 
 Peek-a-Chat is a straightforward tool that enables you to craft engaging WhatsApp messages with a 'Read More' feature. With this generator, you can cleverly hide a portion of your message, revealing it only when the user clicks 'Read More.' This tool is perfect for creating suspenseful or detailed messages within the character limit imposed by WhatsApp.
 
+
 ## How to Use
 
 1. Enter the visible part of your message in the first input field.
@@ -43,6 +44,10 @@ The Streamlit page is configured with a title ("Peek-a-Chat"), an icon (🔍💬
 1. Clone the repository: [github.com/anxkhn/Peek-a-Chat](https://github.com/anxkhn/Peek-a-Chat)
 2. Install dependencies: `pip install streamlit pyperclip`
 3. Run the application: `streamlit run peek_a_chat.py`
+
+**Update:**
+Unfortunately, due to limitations with the Streamlit deployment, it is not possible to deploy with the Pyperclip dependency. However, an alternative web version written in JavaScript is available and can be accessed at [https://anxkhn.xyz/Peek-a-Chat/](https://anxkhn.xyz/Peek-a-Chat/). The Streamlit version can still be run locally.
+
 
 ## Author
 
