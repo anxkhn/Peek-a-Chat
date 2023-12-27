@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peek-a-Chat</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .main-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            padding: 20px;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .btn-center {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container main-container">
+        <h1 class="text-center">Peek-a-Chat: WhatsApp Read More Generator</h1>
+        <div class="alert alert-info mt-4">
+            Welcome to Peek-a-Chat! Create engaging WhatsApp messages with a 'Read More' feature.
+            Hide the second part of your message until the user clicks 'Read More.'
+        </div>
+        <form id="messageForm">
+            <div class="form-group">
+                <label for="part1">Enter the visible part of your message:</label>
+                <input type="text" class="form-control" id="part1" required>
+            </div>
+            <div class="form-group">
+                <label for="part2">Enter the hidden part of your message:</label>
+                <input type="text" class="form-control" id="part2" required>
+            </div>
+            <div class="btn-center">
+                <button type="button" class="btn btn-primary" onclick="generateAndCopy()">Generate and Copy to
+                    Clipboard</button>
+            </div>
+        </form>
+        <div id="warning" class="alert alert-warning mt-3" style="display: none;">
+            Please enter both the visible and hidden parts of your message.
+        </div>
+        <div id="success" class="alert alert-success mt-3" style="display: none;">
+            Message copied to clipboard successfully
+        </div>
+    </div>
+    <footer class="mt-5 text-center">
+        <hr>
+        <p>Made with ❤️ by <a href="https://github.com/anxkhn">Anas Khan</a></p>
+        <p><strong>GitHub Repository:</strong> <a
+                href="https://github.com/anxkhn/Peek-a-Chat">github.com/anxkhn/Peek-a-Chat</a></p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script>
+        function generateAndCopy() {
+            var part1 = document.getElementById("part1").value.trim();
+            var part2 = document.getElementById("part2").value.trim();
+            if (part1 === "" || part2 === "") {
+                document.getElementById("warning").style.display = "block";
+                document.getElementById("success").style.display = "none";
+            } else {
+                var filler = Array(1000 - part2.length).fill("‎").join("") + " ";
+                var result = part1 + filler + part2;
+                navigator.clipboard.writeText(result);
+                document.getElementById("warning").style.display = "none";
+                document.getElementById("success").style.display = "block";
+            }
+        }
+    </script>
+</body>
+
+</html>
